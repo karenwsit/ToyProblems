@@ -55,6 +55,9 @@ def is_unique3(string):
             return False
     return True
 
+#Time: O(n^2)
+#Space: O(1)
+
 def is_unique4(string):
     """
     >>> is_unique2("university")
