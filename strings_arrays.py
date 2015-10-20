@@ -1,15 +1,4 @@
-####### EX. 1.1 ########
 
-def is_unique_string(word):
-    uchars = set()
-    for c in word:
-        if c in uchars:
-            print False
-        else:
-            uchars.add(c)
-    return True
-
-# is_unique_string('tornado')
 
 ####### EX. 1.2 ########
 
