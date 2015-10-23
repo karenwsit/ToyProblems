@@ -2,7 +2,7 @@
 #Given 2 strings, write a function to check if they are one edit away (or zero edits).
 #################################################################################
 
-#Time: O(n)
+#Time: O(n) where n = length of the shorter string
 #Space: O(n)
 
 # def one_edit_away(str1, str2):
