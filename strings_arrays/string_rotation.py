@@ -2,24 +2,30 @@
 #Write a method that checks if one word is a substring of another. Given two strings, s1 & s2, write code to check if s2 is a rotation of s1 using only one call.
 #################################################################################
 
-def is_Substring(s1, s2):
+def is_rotation(s1, s2):
     """
-    >>> is_Substring('erbottlewat', 'waterbottle')
+    >>> is_rotation('erbottlewat', 'waterbottle')
     True
+    >>> is_rotation('something', 'something')
+    True
+    >>> is_rotation('dog', 'pig')
+    False 
     """
 
     if len(s1) != len(s2):
         return False
-    for i in range(len(s2)):
-        if s2[i] == s1[-1] and s2[i+1] == s1[0]:
-            a = i+1
-    subset1 = s2[:a]
-    subset2 = s2[a:]
+    for i in range(len(s1)):
+        if s1 == s2:
+            return True
+        s2 = s2[1:] + s2[0]
+    return False
 
-    new_string = "%s%s" % (subset2, subset1)
+#Using isSubstring from CTCI
 
-    if new_string == s1:
-        return True
+def is_rotation2(s1,s2):
+    if len(s1) == len(s2) and len(s1) > 0:
+        s1s1 = s1 + s1
+        return isSubstring(s1s1, s2)
     return False
 
 
