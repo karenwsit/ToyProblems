@@ -28,38 +28,18 @@ def remove_duplicates(ll):
     LinkedList([1,2,3])
     """
 
-    # key_dict = {}
-    # current = ll.head
-    # previous = None
-
-    # while current != None:
-    #     key_dit[current.data] = key_dict.get(current.data, 0) + 1
-
-    #     if key_dict[current.data] > 1:
-    #         previous.next = current.next
-    #         current = previous.next
-    #     else:
-    #         previous = current
-    #         current = current.next
-    # return ll
-
+    data_set = set()
     current = ll.head
     previous = None
-    data_set = set()
 
     while current != None:
         if current.data in data_set:
-            if previous == None:
-                ll.head = current.next 
-            else:
-                previous.next = current.next
-                current = previous.next
+            previous.next = current.next
+            current = previous.next
         else:
             data_set.add(current.data)
-            next = current.next
             previous = current
-            current = next
-
+            current = current.next
     return ll
 
 
