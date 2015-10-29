@@ -42,6 +42,20 @@ def remove_duplicates(ll):
             current = current.next
     return ll
 
+def remove_duplicates2(ll):
+    current = ll.head
+    previous = None
+
+    while current != None:
+        previous = current
+        current = current.next
+        if previous == current.data:
+            previous.next 
+        else: 
+            current = current.next.next
+
+
+
 
 
 #################################################################################
