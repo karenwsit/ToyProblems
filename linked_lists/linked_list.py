@@ -13,7 +13,7 @@ class LinkedList(object):
 
     def __init__(self, head=None):
         self.head = head
-        
+
     def insert(self, data):
         new = Node(data)
         new.next = self.head
@@ -76,6 +76,8 @@ class LinkedList(object):
             data_list.append(current.data)
             current = current.next
 
+        return data_list
+
     def data_to_list(self, data_list):
         self.head = Node(data_list[0])
         current = self.head
@@ -85,5 +87,6 @@ class LinkedList(object):
             current = current.next
 
     def __repr__(self):
-
+        data_list = self.list_to_data()
+        return "LinkedList(%s)" % str(data_list)
 
