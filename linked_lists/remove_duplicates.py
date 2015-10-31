@@ -42,6 +42,10 @@ def remove_duplicates(ll):
             current = current.next
     return ll
 
+#Without Buffer
+#Time: O(n^2)
+#Space: O(1)
+
 # def remove_duplicates2(ll):
 #     current = ll.head
 #     previous = None
