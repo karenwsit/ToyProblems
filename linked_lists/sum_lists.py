@@ -5,26 +5,38 @@
 #Time = O(n)
 #Space = O(1)
 
+from linked_list import *
+
 def sum_lists(node1, node2):
+    """
+    >>> from linked_list import *
+
+    >>> ll = LinkedList()
+    >>> ll.data_to_list([7,1,6])
+    >>> ll2 = LinkedList()
+    >>> ll2.data_to_list([5,9,2])
+    >>> sum_lists(ll, ll2)
+    LinkedList([2, 1, 9])
+    """
+
     current1 = node1.head
     current2 = node2.head
-    linkedlist_result = LinkedList()  # result node
-    head is None
+    result_ll = LinkedList()  # result node
     tens_place = 0
+    linkedlist_result.head is None
 
     while current1 is not None and current2 is not None:
-        sum = str(current1.data + current2.data + tens_place)
-        if len(sum) > 1:
-            tens_place = sum[-2]
-        ones_place = sum[-1]
-        linkedlist_result.next = ones_place
-        head = result
-        result = ones_place
+        sum1 = tens_place
+        if current1 is not None:
+            sum1 += current1.data
+            current1 = current1.next
+        if current2 is not None:
+            sum1 += current2.data
+            current2 = current2.next
+        result_ll.addNode(sum1 % 10)
+        tens_place = sum1/10
 
-        current1 = current1.next
-        current2 = current2.next
-
-    return head
+    return result_ll
 
 #################################################################################
 #Recursive Solution
@@ -32,30 +44,37 @@ def sum_lists(node1, node2):
 #Time: O()
 #Space: O()
 
-def sum_lists2(node1, node2, carry):
-    if node1 is None and node2 is None and carry == 0:
-        return None
-    result = None  # new node
-    more = None  # new node
+# def sum_lists2(node1, node2, carry):
+#     if node1 is None and node2 is None and carry == 0:
+#         return None
+#     result = None  # new node
+#     more = None  # new node
 
-    value = carry
+#     value = carry
 
-    if node1 is not None:
-        value += node1.data
-    if node2 is not None:
-        value += node2.data
+#     if node1 is not None:
+#         value += node1.data
+#     if node2 is not None:
+#         value += node2.data
 
-    result.data = value % 10  # gets the ones' place digit
+#     result.data = value % 10  # gets the ones' place digit
 
-    if node1 is not None or node2 is not None and value >=10:
-        more = sum_lists2(node1.next, node2.next, carry == 1)
-    elif node1 is not None or node2 is not None and value < 10:
-        more = sum_lists2(node1.next, node2.next, carry == 0)
+#     if node1 is not None or node2 is not None and value >=10:
+#         more = sum_lists2(node1.next, node2.next, carry == 1)
+#     elif node1 is not None or node2 is not None and value < 10:
+#         more = sum_lists2(node1.next, node2.next, carry == 0)
 
-    result.next(more)
+#     result.next(more)
 
-    return result
+#     return result
+
+# #################################################################################
+# # Follow Up
+# #Reverse each of the linked lists & put them into sum_lists2. 
+
 
 #################################################################################
-# Follow Up
-#Reverse each of the linked lists & put them into sum_lists2. 
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

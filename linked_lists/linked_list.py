@@ -19,6 +19,16 @@ class LinkedList(object):
         new.next = self.head
         self.head = new
 
+    def addNode(self, data):
+        node = Node(value)
+        #if the old list is none, set new node as the first node
+        if self.head == None:
+            self.head = node
+            self.tail = node
+        else:
+            self.tail.next = node
+            self.tail = node
+
     def size(self):
         count = 0
         current = self.head
