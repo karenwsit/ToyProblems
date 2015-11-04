@@ -44,33 +44,27 @@ def sum_lists(node1, node2):
 #Time: O()
 #Space: O()
 
-# def sum_lists2(node1, node2, carry):
-#     if node1 is None and node2 is None and carry == 0:
-#         return None
-#     result = None  # new node
-#     more = None  # new node
+def sum_lists2(node1, node2, carry):
+    if node1 is None and node2 is None and carry == 0:
+        return None
+    result_ll = LinkedList()  # new node
+    value = carry
 
-#     value = carry
+    if node1 is not None:
+        value += node1.data
+    if node2 is not None:
+        value += node2.data
 
-#     if node1 is not None:
-#         value += node1.data
-#     if node2 is not None:
-#         value += node2.data
+    result.data = value % 10  # gets the ones' place digit
 
-#     result.data = value % 10  # gets the ones' place digit
+    if node1 is not None or node2 is not None and value >= 10:
+        more = sum_lists2(node1.next, node2.next, carry == 1)
+    elif node1 is not None or node2 is not None and value < 10:
+        more = sum_lists2(node1.next, node2.next, carry == 0)
 
-#     if node1 is not None or node2 is not None and value >=10:
-#         more = sum_lists2(node1.next, node2.next, carry == 1)
-#     elif node1 is not None or node2 is not None and value < 10:
-#         more = sum_lists2(node1.next, node2.next, carry == 0)
+    result.next = more
 
-#     result.next(more)
-
-#     return result
-
-# #################################################################################
-# # Follow Up
-# #Reverse each of the linked lists & put them into sum_lists2. 
+    return result
 
 
 #################################################################################
