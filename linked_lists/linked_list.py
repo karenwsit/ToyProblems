@@ -72,8 +72,8 @@ class LinkedList(object):
 
         while current != None:
             next = current.next
-            current.next = previous #moving the link
-            previous = current #resetting the pointers
+            current.next = previous  #moving the link
+            previous = current  #resetting the pointers
             current = next
         self.head = previous
 
