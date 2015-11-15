@@ -101,18 +101,22 @@ class BinarySearchTree:
                      self.parent.rightChild = self.rightChild
                   self.rightChild.parent = self.parent
 
+#If the node has a right child, then the successor is the smallest key in the right subtree.
+#If the node has no right child and is the left child of its parent, then the parent is the successor.
+#If the node is the right child of its parent, and itself has no right child, then the successor to this node is the successor of its parent, excluding this node.
+    
     def findSuccessor(self):
-      succ = None
-      if self.hasRightChild():
-          succ = self.rightChild.findMin()
-      else:
-          if self.parent:
-                 if self.isLeftChild():
-                     succ = self.parent
-                 else:
-                     self.parent.rightChild = None
-                     succ = self.parent.findSuccessor()
-                     self.parent.rightChild = self
+        succ = None
+        if self.hasRightChild():
+            succ = self.rightChild.findMin()
+        else:
+            if self.parent:
+                   if self.isLeftChild():
+                        succ = self.parent
+                   else:
+                        self.parent.rightChild = None
+                        succ = self.parent.findSuccessor()
+                    self.parent.rightChild = self
       return succ
 
     def findMin(self):
