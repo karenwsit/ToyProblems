@@ -19,11 +19,11 @@ def factorial(n):
 
 def recursive_factorial(n):
     """
-    >>> factorial(0)
+    >>> recursive_factorial(0)
     1
-    >>> factorial(1)
+    >>> recursive_factorial(1)
     1
-    >>> factorial(11)
+    >>> recursive_factorial(11)
     39916800
     """
     if n == 0:

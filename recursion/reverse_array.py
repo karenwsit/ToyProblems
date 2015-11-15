@@ -24,13 +24,13 @@ def reverse(array):
 
 def recursive_reverse(array):
     """
-    >>> reverse([])
+    >>> recursive_reverse([])
     []
-    >>> reverse([1])
+    >>> recursive_reverse([1])
     [1]
-    >>> reverse([1,2])
+    >>> recursive_reverse([1,2])
     [2, 1]
-    >>> reverse([1,2,3])
+    >>> recursive_reverse([1,2,3])
     [3, 2, 1]
     """
     if len(array) <= 1:
