@@ -1,0 +1,15 @@
+12/1/2015 user1 /home
+12/2/2015 user2 /settings
+12/3/2015 user3 /home
+12/4/2015 user1 /settings
+12/5/2015 user3 /
+12/6/2015 user1 /checkout
+12/7/2015 user2 /home
+12/8/2015 user2 /settings
+12/9/2015 user3 /checkout
+12/10/2015 user3 /home
+12/11/2015 user1 /
+12/12/2015 user3 /settings
+12/13/2015 user2 /checkout
+12/14/2015 user1 /
+12/15/2015 user3 /checkout
