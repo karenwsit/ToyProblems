@@ -13,3 +13,7 @@
 12/13/2015 user2 /checkout
 12/14/2015 user1 /
 12/15/2015 user3 /checkout
+12/16/2015 user1 /checkout
+12/17/2015 user1 /home
+12/18/2015 user2 /home
+12/19/2015 user2 /settings
