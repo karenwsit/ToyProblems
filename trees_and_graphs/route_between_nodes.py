@@ -16,8 +16,8 @@ def find_path(graph, start, end, path=[]):
     for adj_node in graph[start]:
         if adj_node not in path:
             new_path = find_path(graph, adj_node, end, path)
-        if new_path:
-            return new_path
+            if new_path:
+                return new_path
 
     return None
 
