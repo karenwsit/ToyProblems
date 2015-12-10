@@ -21,10 +21,39 @@ def find_path(graph, start, end, path=[]):
 
     return None
 
-#For a non-directed graph
-#Breadth-First Search - Not recursive
+
+#CTCI solution: Simple graph traversal, check to see if node is found & keep track of visited nodes"
+#Iterative Implementation of Breadth-First Search using deque
+
+class DirectedGraph:
+    def __init__(self, content):
+        self.content = content
+        self.neighbors = []
 
 def find_path2(start, end):
+    if start is end:
+        return True
+    elif start is None or end is None:
+        return False
+
+    visited = set([start, end])
+
+    from Queue import deque  # double-ended queue supports adding & removing elements from either end
+    queue = deque([start])
+
+    while len(queue) > 0:
+        node = queue.popleft()
+        for child in node.neighbors:
+            if child is end:
+                return True
+            elif child not in visited:
+                visited.add(child)
+                queue.append(child)
+    return False
+
+
+#For a non-directed graph, iterative implemention of Breadth-First Search - Non-recursive
+def find_path3(start, end):
     possible_nodes = Queue()
     seen = set()
 
