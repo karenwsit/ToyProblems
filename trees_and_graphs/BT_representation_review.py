@@ -1,7 +1,7 @@
 #List of Lists Representation of Binary Trees
 
-def make_binary_tree(bt):
-    return [bt, [], []]
+def make_binary_tree(r):
+    return [r, [], []]
 
 def insert_left(root, new_branch):
     left_subtree = root.pop(1)
@@ -19,3 +19,15 @@ def insert_right(root, new_branch):
     else:
         root.insert(2, [new_branch, [], []])
     return root
+
+def get_root_value(root):
+    return root[0]
+
+def set_root_value(root, new_value):
+    root[0] = new_value
+
+def get_left_subtree(root):
+    return root[1]
+
+def get_right_subtree(root):
+    return root[2]
