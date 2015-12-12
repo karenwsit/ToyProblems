@@ -28,3 +28,28 @@ def find_shortest_path(all_paths):
 
 def main():
     find_shortest_path(find_all_paths())
+
+
+"""
+Alternate solution without sorting
+"""
+
+def find_shortest_path2(graph, start, end, path=[]):
+        path = path + [start]
+
+        if start == end:
+            return path
+
+        if start not in graph:
+            return None
+
+        shortest = None
+
+        for node in graph[start]:
+            if node not in path:
+                newpath = find_shortest_path2(graph, node, end, path)
+                if newpath:
+                    if not shortest or len(newpath) < len(shortest):
+                        shortest = newpath
+
+        return shortest
