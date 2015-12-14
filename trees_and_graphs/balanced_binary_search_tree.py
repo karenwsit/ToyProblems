@@ -2,6 +2,14 @@
 CTCI 4.2: Given a sorted (increasing order) array with unique integer elements, write an alogirthm to create a binary search tree with minimal height
 """
 
+class BinaryNode(object):
+    """Node in a binary tree."""
+
+    def __init__(self, data, left=None, right=None):
+        self.data = data
+        self.left = left
+        self.right = right
+
 def make_bst(nums, left, right):
     node_index = len(nums)/2
     node = nums[node_index]
