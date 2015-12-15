@@ -10,17 +10,19 @@ class BinaryNode(object):
         self.left = left
         self.right = right
 
-def make_bst(nums, left, right):
-    node_index = len(nums)/2
-    node = nums[node_index]
+def make_bst(nums):
 
-    left_subtree = nums[0:node_index]
-    right_subtree = nums[node_index:]
+    # Base case when there is no more integers in the array
+    if not nums:
+        return None
 
-    if len(left_subtree) == 1:
-        node.left = left_subtree[0]
-    if len(right_subtree) == 1:
-        node.right = right_subtree[0]
+    mid_index = len(nums)/2
 
-    left = make_bst(left_subtree)
-    right = make_bst(right_subtree)
+    # Make a new node out of the midpoint of array
+    node = BinaryNode(nums[mid_index])
+
+    node.left = make_bst(nums[:mid_index])
+    node.right = make_bst(nums[mid_index + 1:])
+
+    return node
+    
