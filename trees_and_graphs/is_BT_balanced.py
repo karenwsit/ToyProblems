@@ -8,7 +8,7 @@ def height(node):
     if node == None:
         return 0
 
-    
+    return max(height(node.left), height(node.right)) + 1  # Unsure why we need to add 1
 
 
 def is_bt_balanced(node):
