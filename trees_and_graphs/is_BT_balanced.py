@@ -23,37 +23,27 @@ def is_bt_balanced(node):
     """
     >>> N = BinaryNode
     >>> tree1 = N(1)
-    >>> tree1.is_balanced()
+    >>> tree1.is_bt_balanced()
     True
 
-    >>> tree2 = N(1,
-                    N(2))
-    >>> tree2.is_balanced()
+    >>> tree2 = N(1, N(2))
+    >>> tree2.is_bt_balanced()
     True
 
-    >>> tree3 = N(1,
-                    N(2), N(3))
-    >>> tree3.is_balanced()
+    >>> tree3 = N(1, N(2), N(3))
+    >>> tree3.is_bt_balanced()
     True
 
-    >>> tree4 = N(1,
-                    N(2,
-                        N(3)),
-                    N(4))
-    >>> tree4.is_balanced()
+    >>> tree4 = N(1, N(2, N(3)), N(4))
+    >>> tree4.is_bt_balanced()
     True
 
-    >>>tree5 = N(1,
-                    N(2,
-                        N(3), N(4)),
-                    N(5))
-    >>>tree5.is_balanced()
+    >>> tree5 = N(1, N(2, N(3), N(4)), N(5))
+    >>> tree5.is_bt_balanced()
     True
 
-    >>>tree6 = N(1,
-                N(2,
-                    N(3), N(4)))
-    >>>tree6.is_balanced()
+    >>> tree6 = N(1, N(2, N(3), N(4)))
+    >>> tree6.is_bt_balanced()
     False
     """
 
