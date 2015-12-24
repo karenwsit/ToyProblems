@@ -12,51 +12,50 @@ class BinaryNode(object):
 
     def is_balanced(self):
         """
-        >>> N = BinaryNode
-        >>> tree1 = N(1)
-        >>> tree1.is_balanced()
-        True
+            >>> N = BinaryNode
+            >>> tree1 = N(1)
+            >>> tree1.is_balanced()
+            True
 
-        >>> tree2 = N(1, N(2))
-        >>> tree2.is_balanced()
-        True
+            # >>> tree2 = N(1, N(2))
+            # >>> tree2.is_balanced()
+            # True
 
-        >>> tree3 = N(1, N(2), N(3))
-        >>> tree3.is_balanced()
-        True
+            # >>> tree3 = N(1, N(2), N(3))
+            # >>> tree3.is_balanced()
+            # True
 
-        >>> tree4 = N(1, N(2, N(3)), N(4))
-        >>> tree4.is_balanced()
-        True
+            # >>> tree4 = N(1, N(2, N(3)), N(4))
+            # >>> tree4.is_balanced()
+            # True
 
-        >>> tree5 = N(1, N(2, N(3), N(4)), N(5))
-        >>> tree5.is_balanced()
-        True
+            # >>> tree5 = N(1, N(2, N(3), N(4)), N(5))
+            # >>> tree5.is_balanced()
+            # True
 
-        >>> tree6 = N(1, N(2, N(3), N(4)))
-        >>> tree6.is_balanced()
-        False
+            # >>> tree6 = N(1, N(2, N(3), N(4)))
+            # >>> tree6.is_balanced()
+            # False
         """
 
-        def height(node):
+        def _height(node):
 
             # Base Case
             if node is None:
                 return 0
 
-            return max(height(node.left), height(node.right)) + 1  # Unsure why we need to add 1
+            return max(_height(node.left), _height(node.right)) + 1  # Unsure why we need to add 1
 
-
-        def is_bt_balanced(node):
+        def _is_bt_balanced(node):
 
             # Base Case
             if node is None:
                 return True
 
-            if abs(height(node.left) - height(node.right)) > 1:
+            if abs(_height(node.left) - _height(node.right)) > 1:
                 return False
 
-            return is_bt_balanced(node.left) and is_bt_balanced(node.right)
+            return _is_bt_balanced(node.left) and _is_bt_balanced(node.right)
 
 
 if __name__ == '__main__':
