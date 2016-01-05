@@ -6,6 +6,12 @@ def make_anagram_dict(words):
         >>> make_anagram_dict(["act", "cat", "dog", "mouse", "god"])
         {'emosu': ['mouse'], 'dgo': ['dog', 'god'], 'act': ['act', 'cat']}
     """
+    anagram_dict = {}
+
+    for word in words:
+        for key, value in anagram_dict.iteritems():
+            if sorted(key) == sorted(word):
+                anagram_dict[key] 
     
 
 def find_most_anagrams_from_wordlist(wordlist):
@@ -27,6 +33,10 @@ def find_most_anagrams_from_wordlist(wordlist):
     >>> find_most_anagrams_from_wordlist(all_words)
     'angor'
     """
+
+    for word in wordlist:
+        make_anagram_dict(word)
+
 
 
 
