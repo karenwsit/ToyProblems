@@ -9,7 +9,7 @@ def make_anagram_dict(words):
     anagram_dict = {}
 
     for word in words:
-        sorted_word = sorted(word)
+        sorted_word = "".join(sorted(word))
         anagram_dict.setdefault(sorted_word, []).append(word)
 
     return anagram_dict
@@ -34,11 +34,20 @@ def find_most_anagrams_from_wordlist(wordlist):
     'angor'
     """
 
+    full_anagram_dict = make_anagram_dict(wordlist)
+
+    #two tracker variables that will be updated as we iterate through the wordlist
+    highest_num_anagrams = 0
+    most_anagrams_word = None
+
     for word in wordlist:
-        make_anagram_dict(word)
+        sorted_word = "".join(sorted(word))
+        number_anagrams = len(full_anagram_dict[sorted_word])
+        if number_anagrams > highest_num_anagrams:
+            highest_num_anagrams = number_anagrams
+            most_anagrams_word = word
 
-
-
+    return most_anagrams_word
 
 
 if __name__ == "__main__":
