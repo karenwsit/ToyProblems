@@ -5,6 +5,8 @@
 #Time: O(n)
 #Space: O(n)
 
+#Strings are immutable therefore a new string was created
+
 def URLify(string):
     """
     >>> URLify('Mr John Smith')
@@ -16,6 +18,7 @@ def URLify(string):
             new_string += "%20"
         else:
             new_string += char
+
     return new_string
 
 
