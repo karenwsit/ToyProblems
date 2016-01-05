@@ -9,10 +9,10 @@ def make_anagram_dict(words):
     anagram_dict = {}
 
     for word in words:
-        for key, value in anagram_dict.iteritems():
-            if sorted(key) == sorted(word):
-                anagram_dict[key] 
-    
+        sorted_word = sorted(word)
+        anagram_dict.setdefault(sorted_word, []).append(word)
+
+    return anagram_dict
 
 def find_most_anagrams_from_wordlist(wordlist):
     """Given a list of words, return the word with the most anagrams.
