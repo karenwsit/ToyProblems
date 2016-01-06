@@ -39,9 +39,7 @@ def set_zeros(matrix, row_list, column_list):
     [[0, 0, 0, 0], [4, 0, 6, 0], [0, 0, 0, 0]]
     """
     for row in row_list:
-        for integer in matrix[row]:
-            integer == 0
-        # matrix[row] = [0]*len(matrix[row])
+        matrix[row] = [0]*len(matrix[row])
 
     for row in matrix:
         for col in column_list:
