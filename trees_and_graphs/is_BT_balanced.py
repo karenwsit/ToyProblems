@@ -14,7 +14,6 @@ class BinaryNode(object):
         """
             >>> N = BinaryNode
             >>> tree1 = N(1)
-            >>> print tree1.data
             >>> tree1.is_balanced()
             True
 
@@ -57,6 +56,8 @@ class BinaryNode(object):
                 return 0
 
             return max(_height(node.left), _height(node.right)) + 1  # height of this node is height of our deepest descendent + ourselves
+
+        return _is_bt_balanced(self) is not None
 
 
 if __name__ == '__main__':
