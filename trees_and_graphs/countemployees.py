@@ -42,9 +42,9 @@ class Node(object):
         if self.children:
             for child in self.children:
                 count += 1
-                self.count_employees(child)
+                child.count_employees(count)  # recursion: count_employees(child)
 
-        if not self.children:
+        if not self.children:  # base case but that is already covered in line 48
             return count
 
         return count
@@ -54,4 +54,4 @@ if __name__ == '__main__':
     import doctest
 
     if doctest.testmod().failed == 0:
-        print "\n*** ALL TESTS PASSED. YOU ARE A TREE GENIUS!\n"
+        print "\n*** ALL TESTS PASSED. \n"
