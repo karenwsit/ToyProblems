@@ -39,13 +39,11 @@ class Node(object):
         8
         """
 
-        if self.children:
-            for child in self.children:
-                count += 1
-                child.count_employees(count)  # recursion: count_employees(child)
+        for child in self.children:
+            count += 1 + child.count_employees()  # recursion: count_employees(child)
 
-        if not self.children:  # base case but that is already covered in line 48
-            return count
+        # if not self.children:  # base case but that is already covered in line 48
+        #     return count
 
         return count
 
