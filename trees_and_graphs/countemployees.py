@@ -23,11 +23,18 @@ class Node(object):
         >>> nora = Node("Nora", [henri])
         >>> nick = Node("Nick")
         >>> janet = Node("Janet", [nick, nora])
-        >>> al = Node("Al")
-        >>> bob = Node("Bob")
+        >>> extra = Node("Extra")
+        >>> extra2 = Node("Extra2")
+        >>> al = Node("Al", [extra, extra2])
+        >>> extra3 = Node("Extra3")
+        >>> extra4 = Node("Extra4")
+        >>> bob = Node("Bob", [extra3, extra4])
         >>> jen = Node("Jen")
         >>> jessica = Node("Jessica", [al, bob, jen])
         >>> jane = Node("Jane", [jessica, janet])
+
+        >>> jessica.count_employees()
+        7
 
         >>> henri.count_employees()
         0
@@ -35,17 +42,23 @@ class Node(object):
         >>> nora.count_employees()
         1
 
+        >>> janet.count_employees()
+        3
+
         >>> jane.count_employees()
-        8
+        12
+
+
         """
+        if self.children:
+            for child in self.children:
+                count += 1 + child.count_employees()  # recursion: count_employees(child)
 
-        for child in self.children:
-            count += 1 + child.count_employees()  # recursion: count_employees(child)
-
-        # if not self.children:  # base case but that is already covered in line 48
-        #     return count
+        if not self.children:  # base case but that is already covered in line 48
+            return count
 
         return count
+
 
 
 if __name__ == '__main__':
