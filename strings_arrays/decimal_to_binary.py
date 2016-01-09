@@ -21,18 +21,17 @@ def dec2bin(num):
 
     num_bit = 1
 
-    while 2**num_bit < num:
+    while 2 ** num_bit <= num:
         num_bit += 1
 
-    for i in range(num_bit, -1, -1):
-        if num - (2**i) >= 0:
+    for i in range(num_bit-1, -1, -1):
+        if (2**i) <= num:
             num -= (2**i)
-            print "NUM: %d" % num
             binary_string += "1"
         else:
             binary_string += "0"
-            
-        print "STRING: %s" % binary_string
+
+    return binary_string
 
 
 if __name__ == '__main__':
