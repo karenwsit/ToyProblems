@@ -21,16 +21,27 @@ def alternate_pos_neg(num_list):
             neg_array.append(num)
         else:
             pos_array.append(num)
-            
-    while len(pos_array) or len(neg_array) > 0:
-        if pos_array == []:
-            result_array.append(neg_array.pop(0))
-        elif neg_array == []:
-            result_array.append(pos_array.pop(0))
-        else:
-            result_array.append(pos_array.pop(0))
-            result_array.append(neg_array.pop(0))
-            
+
+    i = 0
+    j = 0
+
+    while i < len(pos_array) or j < len(neg_array):
+        if i < len(pos_array):
+            result_array.append(pos_array[i])
+        if j < len(neg_array):
+            result_array.append(neg_array[j])
+        i += 1
+        j += 1
+
+    # while len(pos_array) or len(neg_array) > 0:
+    #     if pos_array == []:
+    #         result_array.append(neg_array.pop(0))
+    #     elif neg_array == []:
+    #         result_array.append(pos_array.pop(0))
+    #     else:
+    #         result_array.append(pos_array.pop(0))
+    #         result_array.append(neg_array.pop(0))
+  
     return result_array
     
 ########################################################################################
