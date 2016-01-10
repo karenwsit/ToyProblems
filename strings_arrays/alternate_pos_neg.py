@@ -19,9 +19,9 @@ def alternate_pos_neg(num_list):
     for num in num_list:
         if num < 0:
             neg_array.append(num)
-        if num >= 0:
+        else:
             pos_array.append(num)
-
+            
     while len(pos_array) or len(neg_array) > 0:
         if pos_array == []:
             result_array.append(neg_array.pop(0))
