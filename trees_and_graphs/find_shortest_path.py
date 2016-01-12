@@ -1,5 +1,6 @@
 """
-Variation of CTCI 4.1: (Find out whether or not there is a route between 2 nodes) Find the shortest path between 2 nodes
+Variation of CTCI 4.1: (Find out whether or not there is a route between 2 nodes) 
+Find the shortest path between 2 nodes
 """
 
 def find_all_paths(graph, start, end, path=[]):

@@ -10,8 +10,8 @@ def dec2bin(num):
     >>> dec2bin(2)
     '10'
 
-    >>> dec2bin(4)
-    '100'
+    >>> dec2bin(9)
+    '1001'
 
     >>> dec2bin(15)
     '1111'
