@@ -33,7 +33,7 @@ def alternate_pos_neg(num_list):
         i += 1
         j += 1
 
-    # while len(pos_array) or len(neg_array) > 0:
+    # while len(pos_array) > 0 or len(neg_array) > 0:
     #     if pos_array == []:
     #         result_array.append(neg_array.pop(0))
     #     elif neg_array == []:
@@ -42,7 +42,7 @@ def alternate_pos_neg(num_list):
     #         result_array.append(pos_array.pop(0))
     #         result_array.append(neg_array.pop(0))
   
-    return result_array
+    # return result_array
     
 ########################################################################################
 
