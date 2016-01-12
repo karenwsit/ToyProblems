@@ -73,7 +73,7 @@ def remove_duplicates2(ll):
             if current.next.data in data_set:
                 current.next = current.next.next
             else:
-                data_set.add(current.data)
+                data_set.add(current.next.data)
                 current = current.next
     return ll
 
@@ -82,12 +82,32 @@ def remove_duplicates2(ll):
 #Space: O(1)
 
 def remove_duplicates3(ll):
-    current = ll.head
+    """
+    >>> from linked_list import *
 
+    >>> ll_example = LinkedList()
+    >>> ll_example.data_to_list([1,3,3,2,4,6,4,6,3])
+    >>> ll_example_result = remove_duplicates3(ll_example)
+    >>> ll_example_result
+    LinkedList([1, 3, 2, 4, 6])
+
+    >>> ll_example2 = LinkedList()
+    >>> ll_example2.data_to_list([0,1,2])
+    >>> ll_example2_result = remove_duplicates3(ll_example2)
+    >>> ll_example2_result
+    LinkedList([0, 1, 2])
+
+    >>> ll_example3 = LinkedList()
+    >>> ll_example3.data_to_list([1,1,2,3])
+    >>> ll_example3_result = remove_duplicates3(ll_example3)
+    >>> ll_example3_result
+    LinkedList([1, 2, 3])
+    """
+    current = ll.head
     while current != None:
         previous = current
         while previous.next != None:
-            if previous.nextdata == current.data:
+            if previous.next.data == current.data:
                 previous.next = previous.next.next
             else:
                 previous = previous.next
