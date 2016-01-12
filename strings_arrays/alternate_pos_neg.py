@@ -41,7 +41,7 @@ def alternate_pos_neg(num_list):
     #     else:
     #         result_array.append(pos_array.pop(0))
     #         result_array.append(neg_array.pop(0))
-  
+
     # return result_array
     
 ########################################################################################
