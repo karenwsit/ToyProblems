@@ -105,12 +105,13 @@ def remove_duplicates3(ll):
     """
     current = ll.head
     while current != None:
-        previous = current
-        while previous.next != None:
-            if previous.next.data == current.data:
-                previous.next = previous.next.next
+        runner = current
+        while runner.next != None:
+            if runner.next.data == current.data:
+                runner.next = runner.next.next
             else:
-                previous = previous.next
+                runner = previous.next
+        current = current.next
 
     return ll
 
