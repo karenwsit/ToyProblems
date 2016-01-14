@@ -33,7 +33,7 @@ def sum_lists(node1, node2):
             sum1 += current2.data
             current2 = current2.next
         digit = sum1 % 10
-        result_ll.addNode(digit)
+        result_ll.addNode(digits)
         tens_place = sum1/10
         # sum1 % 10
 

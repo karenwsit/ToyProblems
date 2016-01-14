@@ -5,6 +5,9 @@
 #Time: O(n)
 #Space: O(n)
 
+#Time: O(n) to += a string
+#Time: O(1) to append to a list
+
 #Strings are immutable therefore a new string was created
 
 def URLify(string):
@@ -12,7 +15,7 @@ def URLify(string):
     >>> URLify('Mr John Smith')
     'Mr%20John%20Smith'
     """
-    new_string = ""
+    new_string = []
     for char in string:
         if char == " ":
             new_string += "%20"
