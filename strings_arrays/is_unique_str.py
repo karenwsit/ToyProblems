@@ -23,7 +23,7 @@ def is_unique(string):
 
 #Implement an algorithm to determine if a string has all unique characters without other data structures
 
-# Time: O(n)
+# Time: O(n^2) (count & iterating through the string)
 # Space: O(n)
 
 def is_unique2(string):
