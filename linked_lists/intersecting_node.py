@@ -66,6 +66,9 @@ def intersecting_node2(ll1, ll2):
         len2 += 1
         current2 = current2.next
 
+    if current1 is not current2:
+        return False  # there is no intersection
+
     current1 = ll1.head
     current2 = ll2.head
 
