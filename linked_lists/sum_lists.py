@@ -57,7 +57,7 @@ def sum_lists(node1, node2):
 #     """
 #     if node1 is None and node2 is None and carry == 0:
 #         return None
-#     result_ll = LinkedList()  # new node
+#     result = LinkedList()  # new node
 #     value = carry
 
 #     if node1 is not None:
