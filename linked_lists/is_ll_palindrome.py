@@ -62,3 +62,37 @@ def is_ll_palindrome2(node):
         slow = slow.next
 
     return True
+
+"""
+Solution 3: Recursive Solution
+"""
+def is_palindrome_recu(ll):
+    length = length_of_ll(ll)
+    current = ll.head
+    result = is_palindrome_recu_helper(current, length)
+    return result[1]
+
+def is_palindrome_recu_helper(current, length):
+    if current is not None:
+        return [None, True]
+    elif length == 1:
+        return [current.next, True]
+    elif length == 2:
+        return [current.next.next, current.value == current.next.value]
+
+    result = is_palindrome_recu_helper(current.next, length -2)
+
+    if result[0] is not None or not result[1]:
+        return result
+    else:
+        result[1] = current.value == current[0].value
+        result[0] = result[0].next
+        return result
+
+def length_of_ll(ll):
+    length = 0
+    current = ll.head
+    while current is not None:
+        length += 1
+        current = current.next
+    return length
