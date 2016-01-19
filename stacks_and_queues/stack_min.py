@@ -4,21 +4,24 @@
 
 class StackWithMin(object):
     
-    def __init__(self, minimum=None, second_minimum=None):
+    def __init__(self):
         self.items = []
-        self.minimum = minimum
-        self.second_minimum = second_minimum
+        self.min = []
 
     def push(self, value):
         self.items.append(value)
-        if value < minimum:
-            minimum = value
-
+        if len(self.min) == 0 or value <= self.min[-1]:
+            self.min.append(value)
 
     def pop(self):
-        return self.items.pop()
+        if len(self.items) == 0:
+            return None
+        data = self.stack.pop()
+        if data == self.min[-1]:
+            self.min.pop()
+        return data
 
     def get_minimum(self):
-
-
-USE ANOTHER AUXILLARY STACK TO STORE MIN VALUES of every state of the stack
+        if len(self.min) == 0:
+            return None
+        return self.min[-1]
