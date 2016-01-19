@@ -32,4 +32,4 @@ class Stack(object):
             while not s.is_empty() and s.peek() >= r.peek():
                 r.push(s.pop())
         return r
-
+        
