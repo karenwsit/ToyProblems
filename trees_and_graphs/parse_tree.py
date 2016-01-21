@@ -31,17 +31,17 @@ def buildParseTree(fpexp):
 
 pt = buildParseTree("( ( 10 + 5 ) * 3 )")
 
-#Evaluating a Parse Tree
+#Evaluating a Parse Tree via postorder traversal
 
-def evaluate(parseTree):
+def postordereval(parseTree):
 
     opers = {'+': operator.add, '-': operator.sub, '*': operator.mul, '/': operator.truediv}
-
-    leftC = parseTree.getLeftChild()
-    rightC = parseTree.getRightChild()
-
-    if leftC and rightC:
-        fn = opers[parseTree.getRootVal()]
-        return fn(evaluate(leftC), evaluate(rightC))
-    else:
-        return parseTree.getRootVal()
+    res1 = None
+    res2 = None
+    if parseTree:
+        res1 = postordereval(parseTree.getLeftChild())
+        res2 = postordereval(parseTree.getRightChild())
+        if res1 and res2:
+            return opers[parseTree.getRootVal()](res1, res2)
+        else:
+            return parseTree.getRootVal()
