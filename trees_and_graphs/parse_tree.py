@@ -45,3 +45,12 @@ def postordereval(parseTree):
             return opers[parseTree.getRootVal()](res1, res2)
         else:
             return parseTree.getRootVal()
+
+
+def printexpression(parseTree):
+    sVal = ""
+    if parseTree:
+        sVal = '(' + printexpression(parseTree.getLeftChild())
+        sVal = sVal + str(parseTree.getRootVal())
+        sVal = sVal + printexpression(parseTree.getRightChild()) + ')'
+    return sVal
