@@ -47,4 +47,17 @@ def rotateLeft(self, rotRoot):
     rotRoot.parent = newRoot
     rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(newRoot.balanceFactor, 0)
     newRoot.balanceFactor = newRoot.balanceFactor + 1 + max(rotRoot.balanceFactor, 0)
-    
+
+def rebalance(self, node):
+    if node.balanceFactor < 0:
+        if node.rightChild.balanceFactor > 0:
+            self.rotateRight(node.rightChild)
+            self.rotateLeft(node)
+        else:
+            self.rotateLeft(node)
+    elif node.balanceFactor > 0:
+        if node.leftChild.balance < 0:
+            self.rotateLeft(node.leftChild)
+            self.rotateRight(node)
+        else:
+            self.rotateRight(node)
