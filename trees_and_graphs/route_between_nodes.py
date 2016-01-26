@@ -52,7 +52,6 @@ def bfs(graph, start, end):
     return None
 
 
-
 #CTCI solution: Simple graph traversal, check to see if node is found & keep track of visited nodes"
 #Iterative Implementation of Breadth-First Search using deque
 
