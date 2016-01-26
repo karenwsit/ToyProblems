@@ -22,6 +22,37 @@ def find_path(graph, start, end, path=[]):
     return None
 
 
+#Simple graph traversal, check to see if node is found using Queue (list of lists)
+#Graph is in an adjacent list representation
+
+graph = {
+    '1': ['2', '3', '4'],
+    '2': ['5', '6'],
+    '5': ['9', '10'],
+    '4': ['7', '8'],
+    '7': ['11', '12']
+}
+
+def bfs(graph, start, end):
+    queue = []
+
+    queue.append([start])   # push 1st path into queue
+
+    while queue:
+        path = queue.pop(0)
+        node = path[-1]  # get last node from path
+        if node == end:
+            return path
+
+        for adjacent in graph.get(node,[]):
+            new_path = list(path)
+            new_path.append(adjacent)
+            queue.append(new_path)
+
+    return None
+
+
+
 #CTCI solution: Simple graph traversal, check to see if node is found & keep track of visited nodes"
 #Iterative Implementation of Breadth-First Search using deque
 
