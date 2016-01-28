@@ -27,5 +27,24 @@ def binary_tree_to_list_of_ll(btree, depth=1, result=[]):
         result = binary_tree_to_list_of_ll(btree.right, depth+1, result)
     return result
  
- 
+# Breadth First Search Using a Queue
+
+def binary_tree_to_list_of_ll2(btree):
+    if btree is None:
+        return []
+    result = [[btree.value]]
+    queue = [btree]
+    while queue:
+        new_queue =[]
+        for node in queue:
+            if node.left:
+                new_queue.append(node.left)
+            if node.right:
+                new_queue.append(node.right)
+        queue = new_queue
+        if len(queue) == 0:
+            break
+        result.append([x.value for x in queue])
+    return result
+
 
