@@ -1,5 +1,5 @@
-#Exercise 4.1 of Cracking the Coding Interview
-#Given a directed graph, design an algorithm to find out whether there is a path route between two nodes
+#Exercise 4.5 Cracking the Coding Interview
+#Implement a function to check if a binary tree is a binary search tree
 #################################################################################
 
 class BinaryTree(object):
