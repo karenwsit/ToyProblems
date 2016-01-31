@@ -8,13 +8,13 @@ class BinaryTree(object):
         self.left = None
         self.right = None
 
-def is_bst(btree, sorted_array=[]):
+def is_bst(btree):
     l = in_order_search(btree)
     if l == sorted(l):
         return True
     return False
 
-def in_order_search(btree):
+def in_order_search(btree, sorted_array=[]):
     if btree is None:
         return []
     while btree:
