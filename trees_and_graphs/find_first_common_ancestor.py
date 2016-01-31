@@ -19,7 +19,14 @@ def find_first_common_ancestor(p, q):
         return p
     current = p
     parent = current.parent
-    
+
+    while parent:
+        if (parent is q) or (parent.left is current and is_descendent(parent.right, q) or 
+            or (parent.right is current and is_descendent(parent.left, q)):
+            return parent
+        current = parent
+        parent = current.parent
+    return None
 
 
 # check if n is a descendent of root
