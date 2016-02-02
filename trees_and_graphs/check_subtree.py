@@ -4,6 +4,8 @@
 #A tree T2 is a subtree of T1 if there exists a node n in T1 such that the subtree of n is identical to T2.
 #################################################################################
 
+#Runtime: O(nm) where n is the number of nodes in T1 and m is # of nodes in T2
+
 class binaryTree(object):
     
     def __init__(self, value, left=None, right=None):
