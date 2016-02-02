@@ -13,7 +13,21 @@ class binaryTree(object):
 
 
 def check_subtree(t1, t2):
+    # an empty tree is always a subtree
     if t2 is None:
         return True
     if t1 is None:
         return False
+    if t1.value == t2.value and match_tree(t1, t2):
+        return True
+    return check_subtree(t1.left, t2) or check_subtree(t1.right, t2)
+
+def match_tree(t1, t2):
+    if t1 is None and t2 is None:
+        return True
+    elif t1 is None or t2 is None:
+        return False
+    elif t1.value != t2.value:
+        return False
+    else:
+        return match_tree(t1.left, t2.left) and match_tree(t2.right, t2.right)
