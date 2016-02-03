@@ -45,7 +45,7 @@ class FriendGraph(object):
 
         >>> f.add_person("Dumbledore")
         >>> f.nodes
-        {'Dumbledore: <PersonNode Dumbledore>'}
+        {'Dumbledore': <PersonNode Dumbledore>}
         """
         if name not in self.nodes:
             self.nodes[name] = PersonNode(name)
@@ -76,11 +76,23 @@ class FriendGraph(object):
 
     def are_connected(self, name1, name2):
         """Is this name1 friends with name2?"""
-        
+
+        if name1 is None or name2 is None:
+            return False
+
+        if name1.name == name2.name:
+            return True
+
+        while name1:
+            for adj in self.nodes[name1]:
+                self.are_connected(adj)
+
+        return False
+
+
 
 if __name__ == '__main__':
     import doctest
     if doctest.testmod().failed == 0:
         print "\n*** ALL TESTS PASSED!\n"
-
 
