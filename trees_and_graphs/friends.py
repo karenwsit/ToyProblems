@@ -49,3 +49,38 @@ class FriendGraph(object):
         """
         if name not in self.nodes:
             self.nodes[name] = PersonNode(name)
+
+    def set_friends(self, name, friend_names):
+        """Set two people as friends.
+
+        This is reciprocal, so if Romeo is friends with Juliet, she's friends with Romeo (graph is undirected)
+
+        >>> f = FriendGraph()
+        >>> f.add_person('Romeo')
+        >>> f.add_person('Juliet')
+        >>> f.set_friends('Romeo', ['Juliet'])
+
+        >>> f.nodes['Romeo'].adjacent
+        set([<PersonNode Juliet>])
+
+        >>> f.nodes['Juliet'].adjacent
+        set([<PersonNode Romeo>])
+        """
+
+        person = self.nodes[name]
+
+        for friend_name in friend_names:
+            friend = self.nodes[friend_name]
+            person.adjacent.add(friend)
+            friend.adjacent.add(person)
+
+    def are_connected(self, name1, name2):
+        """Is this name1 friends with name2?"""
+        
+
+if __name__ == '__main__':
+    import doctest
+    if doctest.testmod().failed == 0:
+        print "\n*** ALL TESTS PASSED!\n"
+
+
