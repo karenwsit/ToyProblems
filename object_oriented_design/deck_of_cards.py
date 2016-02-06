@@ -11,7 +11,7 @@ class Card(object):
         self.suit = suit
 
     def __str__(self):
-        return "%s %s" (self.pip, self.suit)
+        return '%s %s' % (self.pip, self.suit)
 
 
 class Deck(object):
@@ -35,3 +35,17 @@ class Deck(object):
 
     def add_card(self, card):
         self.cards.append(card)
+
+def main():
+    two = Card('2', 'Clubs')
+    print two
+
+    king = Card('King', 'Diamonds')
+    print king
+
+    card_deck = Deck()
+    print card_deck
+    print card_deck.deal()
+
+if __name__ == '__main__':
+    main()
