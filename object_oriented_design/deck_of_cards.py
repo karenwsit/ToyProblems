@@ -25,4 +25,3 @@ class Deck(object):
     def deal(self):
         self.shuffle()
         return self.deck.pop(0)
-
