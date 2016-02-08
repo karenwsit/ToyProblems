@@ -1,4 +1,6 @@
 #Selection Sort:
+#RunTime: O(n^2)
+
 def selection_sort(an_array):
     """
     >>> selection_sort([64, 25, 12, 22, 11])
