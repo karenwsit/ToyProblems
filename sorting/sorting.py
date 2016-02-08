@@ -1,22 +1,3 @@
-#Bubble Sort
-
-def bubble_sort(l):
-    is_sorted = False
-
-    while is_sorted is False:
-        is_sorted = True
-
-        for i in range(len(l)-1):
-            num1, num2 = l[i], l[i+1]
-
-            if num1 > num2:
-                is_sorted = False
-                l[i], l[i+1] = num2, num1
-
-        print l
-
-# bubble_sort([6, 2, 16, 0, -1])
-
 #Merge Sort
 
 def merge_sort(lst):
