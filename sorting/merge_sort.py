@@ -2,13 +2,16 @@
 
 def merge_sort(lst):
 
-    """Merge sort list and return result."""
+    """
+    >>> merge_sort([1, 6, 0, 3, 5, 4, -20, 7])
+    [-20, 0, 1, 3, 4, 5, 6, 7]
+    """
 
-    print "calling merge_sort on", lst
+    # print "calling merge_sort on", lst
 
     # Break everything down into a list of one
     if len(lst) < 2:  # if length of lst is 1, return lst
-        print "returning", lst
+        # print "returning", lst
         return lst
 
     mid = int(len(lst) / 2)  # index at half the list
@@ -28,9 +31,11 @@ def merge_sort(lst):
             results.append(lst1.pop(0))
         else:
             results.append(lst2.pop(0))
-    print results
+    # print results
     return results
 
-merge_sort([1, 6, 0, 3, 5, 4, -20, 7])
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
 
 
