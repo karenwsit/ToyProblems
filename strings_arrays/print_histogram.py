@@ -34,10 +34,13 @@ def print_histogram_ver(string):
     for word in string_list:
         new_string_list.append(len(word) * '*' + (max_length-len(word)) * '+')
 
-    for j in range(max_length-1, 0, -1):
-        for i in range(len(string_list)):
-            print new_string_list[i][j]
+    matrix = []
 
-    # Need to print new lines correctly; will refactor later
+    for j in range(max_length-1, -1, -1):
+        new_array = []
+        for i in range(len(string_list)):   
+            new_array.append(new_string_list[i][j])
+        matrix.append(new_array)
+    print matrix
 
 print_histogram_ver('test me there')
