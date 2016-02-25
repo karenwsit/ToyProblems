@@ -11,14 +11,24 @@ matrix = [[1, 2, 3, 4, 6],
             [2, 4, 8, 9, 4]]
 
 def build_aux_matrix(matrix):
-    aux_matrix = [[]]
+    aux_matrix = [[0] * len(matrix[0]) for i in range(len(matrix))]
 
     #copy first row
     for i in range(len(matrix[0])):
-        aux_matrix[0].append(matrix[0][i])
+        aux_matrix[0][i] = matrix[0][i]
 
     #sum the columns
+    for i in range(1, len(matrix)):
+        for j in range(len(matrix[0])):
+            aux_matrix[i][j] = matrix[i][j] + aux_matrix[i-1][j]
+            
 
+    #sum the rows
+    for i in range(len(matrix)): 
+        for j in range(1, len(matrix[0])): 
+            aux_matrix[i][j] += aux_matrix[i][j-1]
+
+    print aux_matrix
 
 build_aux_matrix(matrix)
 
