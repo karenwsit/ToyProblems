@@ -38,7 +38,7 @@ def print_histogram_ver(string):
 
     for j in range(max_length-1, -1, -1):
         new_array = []
-        for i in range(len(string_list)):   
+        for i in range(len(string_list)):
             new_array.append(new_string_list[i][j])
         matrix.append(new_array)
     print matrix
