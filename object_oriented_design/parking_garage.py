@@ -1,5 +1,10 @@
 #7.4 Parking Lot: Design a parking lot using object-oriented principles
 
+#Questions:
+#How to best structure all these different classes. Should they be subclasses? or stay separate classes?
+#How to best pass variables from other classes when they are instance variables
+#Reference to someone else's implementation in Python: https://gist.github.com/anonymous/a6247da9d061b1eab899
+
 class ParkingLot(ParkingSpace):
 
     """All parking lots have a name, a maximum capacity and charge an hourly rate"""
@@ -28,7 +33,7 @@ class ParkingSpace(object):
         self.occupied = occupied
         self.space_type = space_type
 
-class Ticket(object):
+class Ticket(ParkingLot):
 
     """Tickets are issued by a parking lot with entrance and exit times, paid, and total cost attributes"""
 
@@ -40,3 +45,11 @@ class Ticket(object):
         #boolean value
         self.paid = paid
         self.total_cost = total_cost
+
+    def calculate_total_cost(self):
+        parked_time = self.exit_time - self.entrance_time
+        if parked_time == 0:
+            parked_time += 1
+        elif type(parked_time) != integer:
+            #round up to the nearest hour if parked_time is not an integer
+        parked_time * self.hourly_rate
