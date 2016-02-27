@@ -1,5 +1,8 @@
 #http://www.geeksforgeeks.org/reverse-an-array-without-affecting-special-characters/
 
+#Runtime: O(n)
+#Space: O(n)
+
 def reverse_string_special(string):
     """
     >>> reverse_string_special('a,b$c')
@@ -24,6 +27,8 @@ def reverse_string_special(string):
             input_array[i] = new_element
 
     return "".join(input_array)
+
+#Will refactor to include more efficient solution of runtime O(n) and no extra space
 
 
 if __name__ == '__main__':
