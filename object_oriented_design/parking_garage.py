@@ -9,10 +9,10 @@ class ParkingLot(ParkingSpace):
 
     """All parking lots have a name, a maximum capacity and charge an hourly rate"""
 
-    def __init__(self, name, capacity, hourly_rate):
-        self.name = name
-        self.capacity = capacity
-        self.hourly_rate = hourly_rate
+    def __init__(self, id, street_address, owner_id ):
+        self.id = id
+        self.street_address = street_address
+        self.owner_id = owner_id   # Foreign Key
 
     def find_compact_avail(self):
         # SELECT * FROM PARKING SPACE WHERE TYPE=COMPACT AND OCCUPIED=FALSE
@@ -23,27 +23,36 @@ class ParkingLot(ParkingSpace):
     def calculate_daily_rev(self):
         # SELECT SUM(TOTAL_COST) FROM TICKET WHERE PAID= TRUE AND EXITTIME= TODAY(DATE)
 
+class Owners(object):
+
+    """Owners own Parking Lots"""
+
+    def __init__(self, id, name, address, email, phone):
+        self.id = id
+        self.name = name
+        self.address = address
+        self.email = email
+        self.phone = phone
+
 
 class ParkingSpace(object):
 
     """Parking spaces make up a parking lot with occupied and space type attributes"""
 
-    def __init__(self, occupied, space_type):
-        #boolean value
-        self.occupied = occupied
-        self.space_type = space_type
+    def __init__(self, id, car_type, space_type, level):
+        self.id = id
+        self.parking_lot_id = id  # Foreign Key
+        self.car_id = car_id  # if IS NULL then the parking space is empty, also a private variable
+        self.car_type = car_type
 
 class Ticket(ParkingLot):
 
     """Tickets are issued by a parking lot with entrance and exit times, paid, and total cost attributes"""
 
-    def __init__(self, entrance_time, exit_time, paid, total_cost=None):
-        #timestamp value
-        self.entrance_time = entrance_time
-        #timestamp value
-        self.exit_time = exit_time
-        #boolean value
-        self.paid = paid
+    def __init__(self, id, entrance_time, exit_time, parking_space_id, total_cost=None):
+        self.entrance_time = entrance_time  # timestamp value
+        self.exit_time = exit_time          # timestamp value
+        self.parking_space_id = parking_space_id   # Foreign Key
         self.total_cost = total_cost
 
     def calculate_total_cost(self):
