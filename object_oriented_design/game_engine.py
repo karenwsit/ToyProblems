@@ -21,6 +21,7 @@ class Engine(object):
         #print out the last scene
         current_scene.enter()
 
+#Inheritance - Death class inherits from Scene
 class Death(Scene):
 
     quips = ["You died.  You kinda suck at this.",
@@ -194,7 +195,6 @@ class Map(object):
         'escape_pod': EscapePod(),
         'death': Death(),
         'finished': Finished(),
-
     }
 
     def __init__(self, start_scene):
