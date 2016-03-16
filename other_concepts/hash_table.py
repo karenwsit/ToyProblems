@@ -32,3 +32,6 @@ def hashfunction(self, key, size):
 
 def rehash(self, oldhash, size):
     return (oldhash+1) % size
+
+
+#TO DO: GET Function
