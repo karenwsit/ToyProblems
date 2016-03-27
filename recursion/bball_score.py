@@ -10,6 +10,7 @@ def get_bball_combo(score, combo_list=None):
     >>> get_bball_combo(3)
     [3]
     """
+
     if combo_list is None:
         combo_list = []
     if score == 0:
