@@ -8,26 +8,32 @@ http://stackoverflow.com/questions/26702757/check-if-the-given-string-follows-th
 """
 
 def search(pattern, string, matches=None):
-    if matches is None:
-        matches = {}
-    max_match_len = len(string)
-    while max_match_len != 0:
-        match = string[0:max_match_len]
+    if not matches:
+        matches = dict()
+
+    if not pattern and not string:
+        return True
+
+    if pattern:
         head = pattern[0]
-        matches_copy = dict(matches)
-        if head not in matches_copy:
-            matches_copy[head] = match
+    else:
+        return False
 
-        if matches_copy[head] == match:
-            if len(pattern) > 1:
-                tail = pattern[1:]
-                remain_str = string[len(match):]
-                if len(remain_str) > 0 and search(tail, remain_str, matches_copy):
-                    return True
+    expect = matches.get(head)
+    if expect:
+        if string.startswith(expect):
+            return search(pattern[1:], string[len(expect):], matches)
+        else:
+            return False
+    else:
+        for matchLen in range(len(string), 0, -1):  # loop from len(string) to 1
+            match = string[:matchLen]
+            matches[head] = match
+            if search(pattern[1:], string[len(match):], matches):
+                return True
             else:
-                #Implicitly checked desired pattern matches
-                if len(string[len(match):]) == 0:
-                    return True
-        max_match_len = -1
-    return False
+                del matches[head]
+        else:
+            return False
 
+print search("abba", "catdogdogcat")
