@@ -39,14 +39,14 @@ def is_palindrome(string):
 def flp2(string):
     """
     >>> flp2('bananas')
-    'anana'
+    5
     >>> flp2('tacocat')
-    'tacocat'
+    7
     >>> flp2('almond')
-    False
+    1
     """
     n = len(string)
-    C = [[0]*3 for x in range(3)]
+    C = [[0]*n for x in range(n)]
 
     #Strings of length 1 are palindrome of length 1
     for i in range(n):
@@ -61,7 +61,7 @@ def flp2(string):
             elif string[i] == string[j]:
                 C[i][j] = C[i+1][j-1] + 2
             else:
-                C[i][j] = max( C[i][j-1], C[i+1][j])
+                C[i][j] = max(C[i][j-1], C[i+1][j])
     return C[0][n-1]
 
 if __name__ == "__main__":
