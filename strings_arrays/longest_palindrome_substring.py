@@ -35,6 +35,7 @@ def is_palindrome(string):
 
 #Dynamic Programming Solution
 #Runtime: O(n^2)
+#Space: O(n^2)
 
 def longestPalindrome(s):
     """
@@ -71,6 +72,7 @@ def longestPalindrome(s):
 
 #Dynamic Programming Solution; this only gives the length of the longest palindromic substring
 #Runtime: O(n^2)
+#Space: O(n^2)
 
 def flp2(string):
     """
