@@ -10,6 +10,7 @@ def is_substring(long_string, substring, i=0, index_array=None):
     """
     if index_array is None:
         index_array = []
+
     if len(long_string) < len(substring):
         return False
 
