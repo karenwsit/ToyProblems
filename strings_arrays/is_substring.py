@@ -1,13 +1,15 @@
 #http://www.geeksforgeeks.org/searching-for-patterns-set-2-kmp-algorithm/
 #################################################################################
 
-def is_substring(long_string, substring, i=0, index_array=[]):
+def is_substring(long_string, substring, i=0, index_array=None):
     """
     >>> is_substring('AABAABACAADAABA', 'AABA')
     [0, 3, 11]
     >>> is_substring('A', 'AABA')
     False
     """
+    if index_array is None:
+        index_array = []
     if len(long_string) < len(substring):
         return False
 
