@@ -12,7 +12,7 @@ def flp(string):
     >>> flp('tacocat')
     'tacocat'
     >>> flp('almond')
-    False
+    ''
     """
     results = []
     for i in range(len(string)):
@@ -21,7 +21,7 @@ def flp(string):
                 results.append(string[i:j])
 
     if not results:
-        return False
+        return ''
 
     new_results = sorted(results, key=len)  #creates a new list; in place sorting will be results.sort(key=len)
     if new_results:
@@ -34,6 +34,42 @@ def is_palindrome(string):
 
 
 #Dynamic Programming Solution
+#Runtime: O(n^2)
+
+def longestPalindrome(s):
+    """
+    >>> longestPalindrome('bananas')
+    'anana'
+    >>> longestPalindrome('tacocat')
+    'tacocat'
+    >>> longestPalindrome('almond')
+    ''
+    """
+    n = len(s)
+    t = [[False for i in range(n)] for j in range(n)]
+    start = 0
+    max_len = 1
+    for i in range(n):
+        t[i][i] = True
+    for i in range(n - 1):
+        j = i + 1
+        if s[i] == s[j]:
+            t[i][j] = True
+            start = i
+            max_len = 2
+    for l in range(3, n + 1):
+        for i in range(n - l + 1):
+            j = i + l - 1
+            if s[i] == s[j] and t[i + 1][j - 1]:
+                t[i][j] = True
+                start = i
+                max_len = l
+    if len(s[start:start + max_len]) > 2:
+        return s[start:start + max_len]
+    else:
+        return ''
+
+#Dynamic Programming Solution; this only gives the length of the longest palindromic substring
 #Runtime: O(n^2)
 
 def flp2(string):
