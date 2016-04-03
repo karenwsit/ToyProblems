@@ -3,6 +3,8 @@ Find the longest palindromic substring
 http://www.geeksforgeeks.org/longest-palindrome-substring-set-1/
 """
 
+#Runtime: O(n^3)
+
 def flp(string):
     """
     >>> flp('bananas')
@@ -29,6 +31,21 @@ def is_palindrome(string):
     if len(string) > 2:
         return string == string[::-1]
     return False
+
+
+#Dynamic Programming Solution
+#Runtime: O(n^2)
+
+def flp2(string):
+    """
+    >>> flp('bananas')
+    'anana'
+    >>> flp('tacocat')
+    'tacocat'
+    >>> flp('almond')
+    False
+    """
+    
 
 if __name__ == "__main__":
     import doctest
