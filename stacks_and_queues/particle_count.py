@@ -42,7 +42,7 @@ def count_particles(string):
                 count -= 1
             count * int(char)
 
-    return count
+    return count_particles
 
 count_particles(r'((H2O)300(AM4B)6)2000')
 
