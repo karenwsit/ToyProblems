@@ -8,6 +8,8 @@ class Node(object):
         self.left = None
         self.right = None
 
+#Runtime: O(n)
+#Space: O(n)
 def is_bst(node):
     l = in_order_search(node)
     if l == sorted(l):
@@ -18,16 +20,24 @@ def in_order_search(node, sorted_array=None):
     if sorted_array is None:
         sorted_array = []
     if node is None:
-        return False
+        return []
 
     in_order_search(node.left, sorted_array)
     sorted_array.append(node.value)
     in_order_search(node.right, sorted_array)
-
     return sorted_array
 
-    # if sorted_array[-1] > node.value:
-    #     return False
+#Min & Max Solution
+#Runtime:O(n)
+#Space: O(log n) on a balanced tree
+def is_bst2(root, maxi, mini):
+    if root is None:
+        return True
+    elif (mini is not None and root.value <= mini) or (maxi is not None and root.value > maxi):
+        return False
+    elif is_bst2(root.left, mini, root.value) == False or is_bst2(root.right, root.value, maxi) == False:
+        return False
+    return True
 
 #TESTING
 root = Node(4)
@@ -36,7 +46,7 @@ root.right = Node(5)
 root.left.left = Node(0)
 root.left.right = Node(3)
 root.left.left.right = Node(1)
-root.right.right = Node(0)
+root.right.right = Node(8)
 
 print in_order_search(root)
-print is_bst(root)
+print is_bst2(root, None, None)
