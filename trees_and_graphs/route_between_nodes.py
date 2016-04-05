@@ -3,7 +3,14 @@
 #################################################################################
 
 #Recursive Solution
-def find_path(graph, start, end, path=[]):
+def find_path(graph, start, end, path=None):
+    """
+    >>> find_path(graph, 'A', 'D')
+    ['A', 'B', 'C', 'D']
+    """
+    if path is None:
+        path = []
+
     path += [start]
 
     #this is the base case:
@@ -15,23 +22,19 @@ def find_path(graph, start, end, path=[]):
 
     for adj_node in graph[start]:
         if adj_node not in path:
-            new_path = find_path(graph, adj_node, end, path)
-            if new_path:
-                return new_path
-
+            return find_path(graph, adj_node, end, path)
     return None
 
 
 #Simple graph traversal, check to see if node is found using Queue (list of lists)
 #Graph is in an adjacent list representation
 
-graph = {
-    '1': ['2', '3', '4'],
-    '2': ['5', '6'],
-    '5': ['9', '10'],
-    '4': ['7', '8'],
-    '7': ['11', '12']
-}
+graph = {'A': ['B', 'C'],
+    'B': ['C', 'D'],
+    'C': ['D'],
+    'D': ['C'],
+    'E': ['F'],
+    'F': ['C']}
 
 def bfs(graph, start, end):
     queue = []
