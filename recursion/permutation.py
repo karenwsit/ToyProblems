@@ -1,7 +1,10 @@
 """
 Find all permutations of an array of elements
 http://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
+l = starting index
+r = ending index
 """
+#Runtime: O(n*n!)
 
 def permute(a, l, r):
     """
