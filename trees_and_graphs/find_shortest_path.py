@@ -4,13 +4,17 @@ Find the shortest path between 2 nodes
 """
 
 def find_all_paths(graph, start, end, path=None):
+    """
+    >>> find_all_paths(graph, 'A', 'D')
+    [['A', 'B', 'C', 'D'], ['A', 'B', 'D'], ['A', 'C', 'D']]
+    """
     if path is None:
         path = []
 
-    path += [start]
+    path = path + [start]
 
     if start == end:
-        return path
+        return [path]
 
     if start not in graph:
         return []
@@ -19,7 +23,7 @@ def find_all_paths(graph, start, end, path=None):
 
     for node in graph[start]:
         if node not in path:
-            new_paths = find_shortest_path(graph, node, end, path)
+            new_paths = find_all_paths(graph, node, end, path)
             for new_path in new_paths:
                 all_paths.append(new_path)
 
@@ -39,6 +43,10 @@ Alternate solution without sorting
 """
 
 def find_shortest_path2(graph, start, end, path=None):
+    """
+    >>> find_shortest_path2(graph, 'A', 'D')
+    ['A', 'B', 'D']
+    """
     if path is None:
         path = []
          
@@ -60,3 +68,17 @@ def find_shortest_path2(graph, start, end, path=None):
                     shortest = newpath
 
     return shortest
+
+graph = {'A': ['B', 'C'],
+    'B': ['C', 'D'],
+    'C': ['D'],
+    'D': ['C'],
+    'E': ['F'],
+    'F': ['C']}
+
+#################################################################################
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+

@@ -30,7 +30,7 @@ def in_order_search(node, sorted_array=None):
 #Min & Max Solution
 #Runtime:O(n)
 #Space: O(log n) on a balanced tree
-def is_bst2(root, maxi, mini):
+def is_bst2(root, mini, maxi):
     if root is None:
         return True
     elif (mini is not None and root.value <= mini) or (maxi is not None and root.value > maxi):
@@ -46,7 +46,7 @@ root.right = Node(5)
 root.left.left = Node(0)
 root.left.right = Node(3)
 root.left.left.right = Node(1)
-root.right.right = Node(8)
+root.right.right = Node(2)
 
 print in_order_search(root)
 print is_bst2(root, None, None)
