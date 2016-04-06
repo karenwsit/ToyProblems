@@ -1,6 +1,10 @@
 """
 Breadth First Search Implementation
 """
+
+#Runtime: O(|V| + |E|)
+#Number of nodes + Number of Edges
+
 graph = {'A': ['B', 'C'],
     'B': ['C', 'D'],
     'C': ['D'],
