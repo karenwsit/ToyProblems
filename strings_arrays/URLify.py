@@ -15,7 +15,7 @@ def URLify(string):
     >>> URLify('Mr John Smith')
     'Mr%20John%20Smith'
     """
-    new_string = []
+    new_string = ""
     for char in string:
         if char == " ":
             new_string += "%20"
