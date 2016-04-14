@@ -23,9 +23,12 @@ def dec2bin(num):
 
     while 2 ** num_bit <= num:
         num_bit += 1
+    print num_bit
 
     for i in range(num_bit-1, -1, -1):
         if (2**i) <= num:
+            print "i", i
+            print "2**i", 2**i
             num -= (2**i)
             binary_string += "1"
         else:
