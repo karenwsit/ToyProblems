@@ -1,18 +1,24 @@
 """
-Find Excel column name from a given column number
 http://www.geeksforgeeks.org/find-excel-column-name-given-number/
-"""
-
-"""
 Given an integer, return the string column header for that indexed column in excel.
-
-Examples you write on the board:
-1 -> ‘A’, 26 -> ‘Z’, 27 -> ‘AA’, 28 --> 'AB', 52 -> ‘AZ’, 53 -> ‘BA’, …702 -->'ZZ' --> 703 -->'AAA'
-27-52 --> 'A'
-53-79 --> 'B'
+1:A, 26:Z, 27:AA, 28:AB, 52:AZ, 53:BA, 702:ZZ, 703:AAA
 """
 
 def excel(integer):
+    """
+    >>> excel(26)
+    'Z'
+    >>> excel(51)
+    'AY'
+    >>> excel(52)
+    'AZ'
+    >>> excel(676)
+    'YZ'
+    >>> excel(702)
+    'ZZ'
+    >>> excel(705)
+    'AAC'
+    """
     res = ""
     n = integer
     int_dict = {
@@ -43,7 +49,6 @@ def excel(integer):
         25: 'Y',
         26: 'Z'
     }
-    
     while n > 0:
         remain = n%26
         if remain == 0:
@@ -52,7 +57,9 @@ def excel(integer):
         else:
             res += int_dict[remain]
             n = n/26
-        
     return res[::-1]
 
-excel(80)
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+
