@@ -22,8 +22,9 @@ def infix(expr):
         else:
             output_list.append(input_list[i])
         i += 1
-    return output_list
+    return "".join(output_list)
     #['(', '(', 'H2O', ')', '*', '300', '+', '(', 'AM4B', ')', '*', '6', ')', '*', '2000']
 
+# def postfix(expr2):
 
-infix('( ( H2O ) 300 ( AM4B ) 6 ) 2000')
+print infix('( ( H2O ) 300 ( AM4B ) 6 ) 2000')
