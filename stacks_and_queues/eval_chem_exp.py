@@ -26,7 +26,6 @@ def infix(expr):
     #['(', '(', 'H2O', ')', '*', '300', '+', '(', 'AM4B', ')', '*', '6', ')', '*', '2000']
 
 def postfix(expr2):
-    print expr2
     prec = {
         '*': 3,
         '/': 3,
@@ -58,8 +57,28 @@ def postfix(expr2):
     return postfix_list  #['H2O', '300', '*', 'AM4B', '6', '*', '+', '2000', '*']
 
 
-def eval(expr3):
- 
+def eval_str(expr3):
+    output_list = []
+    for element in expr3:
+        if element == '*' or element == '+':
+            output_list.append(element)
+        elif element.isdigit() == True:
+            output_list.append(int(element))
+        else:
+            total_num = 0
+            char_num = 0
+            for i in range(len(element)):
+                if element[i].isdigit():
+                    char_num += 1
+                    total_num += int(element[i]) 
+            output_list.append(len(element)-(char_num*2)+total_num)
+    return output_list
+
+def postfix_eval_expr(expr4):
+
+
 
 expr2 = infix('( ( H2O ) 300 ( AM4B ) 6 ) 2000')
-postfix(expr2)
+expr3 = postfix(expr2)
+expr4 = postfix_eval_str(expr3)
+eval_expr(expr4)
