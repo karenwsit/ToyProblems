@@ -72,13 +72,25 @@ def eval_str(expr3):
                     char_num += 1
                     total_num += int(element[i]) 
             output_list.append(len(element)-(char_num*2)+total_num)
-    return output_list
+    return output_list  #[3, 300, '*', 6, 6, '*', '+', 2000, '*']
 
 def postfix_eval_expr(expr4):
-
+    #expr4 = [3, 300, '*', 6, 6, '*', '+', 2000, '*']
+    operand_stack = []
+    for element in expr4:
+        if element != '*' and element != '+':
+            operand_stack.append(element)
+        else:
+            if element == '*':
+                new = operand_stack.pop() * operand_stack.pop()
+                operand_stack.append(new)
+            if element == '+':
+                new = operand_stack.pop() + operand_stack.pop()
+                operand_stack.append(new)
+    return operand_stack[0]  #1,872,000
 
 
 expr2 = infix('( ( H2O ) 300 ( AM4B ) 6 ) 2000')
 expr3 = postfix(expr2)
-expr4 = postfix_eval_str(expr3)
-eval_expr(expr4)
+expr4 = eval_str(expr3)
+postfix_eval_expr(expr4)
