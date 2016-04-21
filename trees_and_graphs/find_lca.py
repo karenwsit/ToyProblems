@@ -3,6 +3,9 @@ Find Lowest Common Ancestor in a BST
 http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/
 """
  
+#Runtime: O(h) where h = height of tree
+#Space: O(h) in function call stack for recursive function calls
+
 # A Binary tree node
 class Node:
     def __init__(self, data):
