@@ -11,6 +11,8 @@ class BinaryTreeNode(object):
         self.right = right
         self.parent = parent
 
+#Runtime: O(h) where h = height of tree
+#Space: O(h) in function call stack for recursive function calls
 
 def find_first_common_ancestor(p, q):
     if p is None or q is None:
