@@ -22,7 +22,6 @@ def quick_sort_helper(lst, start, end):
         quick_sort_helper(lst, start, split_point-1)  #left side of split_point
         quick_sort_helper(lst, split_point+1, end)  #right side of split_point
 
-
 def partition(lst, start, end):
 
     pivot = lst[start]

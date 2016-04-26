@@ -1,4 +1,6 @@
 #Merge Sort
+#Runtime: O(nlogn)
+#Space: O(n)  Not in place sorting
 
 def merge_sort(lst):
 
@@ -20,7 +22,8 @@ def merge_sort(lst):
 
     # Compare first items of each pair of lists and interleaving a result list
     results = []
-    print lst1, lst2
+    # print "lst1:", lst1
+    # print "lst2:", lst2
 
     while len(lst1) > 0 or len(lst2) > 0:
         if lst1 == []:
@@ -31,11 +34,11 @@ def merge_sort(lst):
             results.append(lst1.pop(0))
         else:
             results.append(lst2.pop(0))
-    # print results
+    # print "results", results
     return results
 
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
 
-
+# merge_sort([1, 6, 0, 3, 5, 4, -20, 7])
