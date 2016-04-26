@@ -1,12 +1,18 @@
-#Quick Sort
+#Quick Sort - sorting done in place
+#Runtime: O(n^2)
+#Space: O(log(n))
+
 
 def quick_sort(lst):
 
     """
     >>> quick_sort([1, 6, 0, 3, 5, 4, -20, 7])
     [-20, 0, 1, 3, 4, 5, 6, 7]
+    >>> quick_sort([4, 8, 3, 1, 5])
+    [1, 3, 4, 5, 8]
     """
     quick_sort_helper(lst, 0, len(lst)-1)
+    return lst
 
 def quick_sort_helper(lst, start, end):
     if start < end:
@@ -43,3 +49,7 @@ def partition(lst, start, end):
     lst[right] = temp
 
     return right
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
